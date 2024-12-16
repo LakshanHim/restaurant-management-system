@@ -5,3 +5,13 @@
     -fx-background-color: #113C4A;
     -fx-text-fill: white;
 }
+.odr{
+    -fx-text-fill: white;
+    -fx-background-position: center;
+}
+.btnAdd{
+    -fx-background-color: #CC3636;
+}
+.btnAdd:hover{
+    -fx-background-color: #367E18;
+}

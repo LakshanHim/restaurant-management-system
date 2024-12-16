@@ -35,7 +35,7 @@
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Button>
-      <FontAwesomeIconView glyphName="HOME" layoutX="102.0" layoutY="216.0" size="20" text="" wrappingWidth="22.342930793762207" />
+      <FontAwesomeIconView glyphName="CAR" layoutX="102.0" layoutY="216.0" size="20" text="" wrappingWidth="22.342930793762207" />
       <Separator layoutX="197.0" layoutY="176.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
       <Button layoutX="243.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnReport" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Report&#10;&#10;&#10;">
          <font>
