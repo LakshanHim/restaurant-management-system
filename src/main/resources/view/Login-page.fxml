@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.LoginController">
+   <children>
+      <ImageView fitHeight="525.0" fitWidth="799.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/login.jpeg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="246.0" layoutY="101.0" opacity="0.91" prefHeight="322.0" prefWidth="295.0" style="-fx-background-color: #1A1A19;">
+         <children>
+            <TextField fx:id="txtUserName" layoutX="60.0" layoutY="173.0" prefHeight="30.0" prefWidth="173.0" promptText="UserName" style="-fx-background-color: #F6FCDF; -fx-background-radius: 10; -fx-border-color: transparent;" />
+            <PasswordField fx:id="txtPassword" layoutX="60.0" layoutY="221.0" prefHeight="30.0" prefWidth="174.0" promptText="Password" style="-fx-background-color: #F6FCDF; -fx-background-radius: 10; -fx-border-color: transparent;" />
+            <Button layoutX="102.0" layoutY="269.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #41B06E; -fx-background-radius: 15; -fx-font-weight: bold; -fx-font-size: 20;" text="Login">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <FontAwesomeIconView glyphName="USER" layoutX="212.0" layoutY="193.0" size="15" />
+            <FontAwesomeIconView glyphName="LOCK" layoutX="212.0" layoutY="241.0" size="15" text="" />
+            <Label layoutX="81.0" style="-fx-background-color: transparent;" text="Welcome" textFill="#8decb4">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="39.0" style="-fx-background-color: transparent;" text="to" textFill="#8decb4">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="77.0" prefHeight="38.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="Restaurant " textFill="#8decb4">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="154.0" prefHeight="14.0" prefWidth="160.0" style="-fx-background-color: transparent;" text="Welcome Back Please Enter Your Detail" textFill="WHITE">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button layoutX="653.0" layoutY="483.0" mnemonicParsing="false" onAction="#btnChangePassword" prefHeight="30.0" prefWidth="124.0" style="-fx-font-size: 12; -fx-background-color: null;" text="Change password" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

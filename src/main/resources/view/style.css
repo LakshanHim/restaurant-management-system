@@ -1,0 +1,7 @@
+.GrorpHover{
+    -fx-background-color: null;
+}
+.GrorpHover:hover{
+    -fx-background-color: #113C4A;
+    -fx-text-fill: white;
+}
