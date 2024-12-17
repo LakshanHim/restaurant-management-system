@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,7 +28,11 @@ public class SelectTypeController {
 
 
     @FXML
-    void btnMenu(ActionEvent event) {
+    void btnMenuUpdate(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MenuUpdate-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
 
     }
 
@@ -51,6 +56,14 @@ public class SelectTypeController {
 
     @FXML
     void btnReport(ActionEvent event) {
+
+    }
+    @FXML
+    void btnLoadMenu(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Loadview-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
 
     }
 
