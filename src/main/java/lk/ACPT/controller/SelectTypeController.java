@@ -46,6 +46,7 @@ public class SelectTypeController {
         stage.setScene(scene);
         stage.setFullScreen(true);
 
+
     }
 
     @FXML
