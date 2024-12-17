@@ -9,9 +9,9 @@
     -fx-text-fill: white;
     -fx-background-position: center;
 }
-.btnAdd{
+.addHover{
     -fx-background-color: #CC3636;
 }
-.btnAdd:hover{
-    -fx-background-color: #367E18;
+.addHover:hover{
+    -fx-background-color: green;
 }

@@ -3,8 +3,11 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.text.DateFormat;
@@ -30,6 +33,18 @@ public class SelectTypeController {
 
     @FXML
     void btnOrder(ActionEvent event) {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Order-page.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+          // Set the scene and enable fullscreen mode
+        stage.setScene(scene);
+        stage.setFullScreen(true);
 
     }
 
