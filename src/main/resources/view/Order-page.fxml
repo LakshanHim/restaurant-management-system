@@ -181,10 +181,9 @@
             </Pane>
             <Pane layoutX="1114.0" layoutY="24.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
                <children>
-                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/seafood.png" />
-                     </image>
+                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true"
+                             preserveRatio="true">
+                     <Image url="@../images/seafood.png"/>
                   </ImageView>
                   <Label layoutX="28.0" layoutY="96.0" text="seafood platters">
                      <font>

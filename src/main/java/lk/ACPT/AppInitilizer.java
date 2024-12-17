@@ -17,20 +17,20 @@ public class AppInitilizer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-//        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
-//        Scene scene = new Scene(load);
-//        primaryStage.setScene(scene);
-//        primaryStage.initStyle(StageStyle.UNDECORATED);
-//        primaryStage.centerOnScreen();
-//        primaryStage.show();
-
-
-        BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
         Scene scene = new Scene(load);
         primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.centerOnScreen();
         primaryStage.show();
+
+
+//        BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
+//        Scene scene = new Scene(load);
+//        primaryStage.setScene(scene);
+//        primaryStage.setFullScreen(true);
+//        primaryStage.centerOnScreen();
+//        primaryStage.show();
 
     }
 }
