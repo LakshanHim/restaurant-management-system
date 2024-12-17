@@ -1,15 +1,23 @@
 package lk.ACPT.controller;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import lk.ACPT.dto.OrderDetailDto;
+import lk.ACPT.model.SearchModel;
+import lk.ACPT.tm.OrderTM;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class OrderController {
@@ -41,9 +49,24 @@ public class OrderController {
     private Spinner<Integer> spi8;
 
     @FXML
-    void btnAdd1(ActionEvent event) {
+    private TableView<OrderTM> tblCart;
+
+
+    private  double subTotal =0 ;
+    private ArrayList<OrderTM> itemTMS;
+
+    @FXML
+    void btnAdd1(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi1.getValue();
-        System.out.println(value);
+        int id = 1;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
+
 
     }
 
@@ -149,6 +172,15 @@ public class OrderController {
         SpinnerValueFactory<Integer> valueFactory8 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 0); // Min: 50, Max: 150, Default: 50
         spi8.setValueFactory(valueFactory8);
+
+        tblCart.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        tblCart.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("qty"));
+        tblCart.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
+        tblCart.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+
+
+        itemTMS = new ArrayList<>();
+
 
     }
 

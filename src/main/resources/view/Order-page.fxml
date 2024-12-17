@@ -45,7 +45,7 @@
    <center>
       <Pane prefHeight="786.0" prefWidth="1509.0" style="-fx-background-color: #E2F1E7;" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutY="566.0" prefHeight="210.0" prefWidth="635.0">
+            <TableView fx:id="tblCart" layoutY="566.0" prefHeight="210.0" prefWidth="635.0">
               <columns>
                 <TableColumn prefWidth="189.59997177124023" text="Items Name" />
                   <TableColumn prefWidth="108.79998779296875" text="qty" />
