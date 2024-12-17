@@ -71,47 +71,96 @@ public class OrderController {
     }
 
     @FXML
-    void btnAdd2(ActionEvent event) {
+    void btnAdd2(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi2.getValue();
-        System.out.println(value);
+        int id = 2;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
 
     }
 
     @FXML
-    void btnAdd3(ActionEvent event) {
+    void btnAdd3(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi3.getValue();
-        System.out.println(value);
+        int id = 3;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
 
     }
 
     @FXML
-    void btnAdd4(ActionEvent event) {
+    void btnAdd4(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi4.getValue();
-        System.out.println(value);
+        int id = 4;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
     }
 
     @FXML
-    void btnAdd5(ActionEvent event) {
+    void btnAdd5(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi5.getValue();
-        System.out.println(value);
+        int id = 5;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
     }
 
     @FXML
-    void btnAdd6(ActionEvent event) {
+    void btnAdd6(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi6.getValue();
-        System.out.println(value);
+        int id = 6;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
     }
 
     @FXML
-    void btnAdd7(ActionEvent event) {
+    void btnAdd7(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi7.getValue();
-        System.out.println(value);
+        int id = 7;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
     }
 
     @FXML
-    void btnAdd8(ActionEvent event) {
+    void btnAdd8(ActionEvent event) throws SQLException, ClassNotFoundException {
         Integer value = spi8.getValue();
-        System.out.println(value);
+        int id = 8;
+        OrderDetailDto detail =  SearchModel.addCart(id);
+        double unitPrice = detail.getUnitPrice();
+        String ItemsName = detail.getItemsName();
+        double totalPrice = unitPrice*value;
+
+        itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
+        tblCart.setItems(FXCollections.observableList(itemTMS));
     }
 
     @FXML
