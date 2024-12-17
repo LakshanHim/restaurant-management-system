@@ -30,7 +30,7 @@
          </children>
       </AnchorPane>
       <Separator layoutX="56.0" layoutY="310.0" prefHeight="0.0" prefWidth="672.0" style="-fx-background-color: #113C4A;" />
-      <Button layoutX="53.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnOrder" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Order&#10;Details&#10;&#10;">
+      <Button layoutX="53.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnOrder" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Order&#10;Details&#10;&#10;" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
@@ -44,12 +44,17 @@
       </Button>
       <Separator layoutX="396.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
       <Separator layoutX="589.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
-      <Button layoutX="434.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Menu&#10;Update&#10;&#10;&#10;&#10;">
+      <Button layoutX="434.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Menu&#10;Update&#10;&#10;&#10;&#10;" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Button>
       <Button layoutX="620.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnLoadMenu" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Load All&#10;Menu&#10;&#10;&#10;&#10;&#10;" textAlignment="CENTER">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="53.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnAddItems" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Add Menu&#10;Items&#10;&#10;&#10;&#10;&#10;" textAlignment="CENTER">
          <font>
             <Font name="Times New Roman Bold" size="17.0" />
          </font>

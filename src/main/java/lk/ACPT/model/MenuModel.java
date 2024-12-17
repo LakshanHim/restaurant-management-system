@@ -9,6 +9,7 @@ import lk.ACPT.tm.MenuTM;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MenuModel {
@@ -90,5 +91,28 @@ public class MenuModel {
             errorAlert.showAndWait();
         }
         return false;
+    }
+
+    public static boolean SaveForm(MenuDto menu) {
+        //load driver class to RAM
+        try {
+            Connection connection = DBConnection.getDBConnection().getConnection();
+
+            //dynamic quary is
+            // write sql quary
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into menu(itemName,unitPrice) value(?,?)");
+            preparedStatement.setObject(1, menu.getName());
+            preparedStatement.setObject(2, menu.getUnitPrice());
+            //execute Quary
+            int i = preparedStatement.executeUpdate();
+
+            if (i > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

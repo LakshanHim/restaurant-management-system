@@ -26,6 +26,15 @@ public class SelectTypeController {
     @FXML
     private Label setTime;
 
+    @FXML
+    void btnAddItems(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MenuSave-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+
+    }
+
 
     @FXML
     void btnMenuUpdate(ActionEvent event) throws IOException {
