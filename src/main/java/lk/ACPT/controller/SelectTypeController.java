@@ -32,6 +32,7 @@ public class SelectTypeController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MenuSave-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
@@ -42,6 +43,7 @@ public class SelectTypeController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/MenuUpdate-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 
@@ -73,6 +75,7 @@ public class SelectTypeController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Loadview-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
+        stage.centerOnScreen();
 
     }
 

@@ -5,9 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -21,6 +19,22 @@ import java.util.ArrayList;
 
 
 public class OrderController {
+
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblNum;
+
+    @FXML
+    private Label lblPrice;
+
+    @FXML
+    private Label lblRemain;
+
+    @FXML
+    private Label lblTime;
+
     @FXML
     private BorderPane rootOrder;
 
@@ -50,6 +64,14 @@ public class OrderController {
 
     @FXML
     private TableView<OrderTM> tblCart;
+
+    @FXML
+    private TextField txtCash;
+
+    @FXML
+    void Payed(ActionEvent event) {
+
+    }
 
 
     private  double subTotal =0 ;
