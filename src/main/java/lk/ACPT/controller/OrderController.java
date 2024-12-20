@@ -1,5 +1,8 @@
 package lk.ACPT.controller;
-
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,13 +12,22 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lk.ACPT.dto.OrderDetailDto;
+import lk.ACPT.dto.OrderDto;
+import lk.ACPT.model.OrderModel;
 import lk.ACPT.model.SearchModel;
 import lk.ACPT.tm.OrderTM;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class OrderController {
@@ -67,15 +79,33 @@ public class OrderController {
 
     @FXML
     private TextField txtCash;
+    private JPasswordField setTime;
+    private ArrayList<OrderDetailDto> orderDetailDtos;
+    private  double subTotal =0 ;
+    private ArrayList<OrderTM> itemTMS;
 
     @FXML
     void Payed(ActionEvent event) {
 
     }
 
+    @FXML
+    void btnPlaceOrder(ActionEvent event) {
+        DateFormat dateformatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String format = dateformatter.format(date);
+        lblDate.setText(format);
 
-    private  double subTotal =0 ;
-    private ArrayList<OrderTM> itemTMS;
+        LocalTime myObj = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedTime = myObj.format(formatter);
+        lblTime.setText(formattedTime);
+        lblPrice.setText(String.valueOf(subTotal));
+
+        OrderModel.placeOrder(new OrderDto(format,formattedTime,subTotal,orderDetailDtos));
+
+    }
+
 
     @FXML
     void btnAdd1(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -89,6 +119,8 @@ public class OrderController {
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
 
+        subTotal += totalPrice;
+
 
     }
 
@@ -100,6 +132,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -114,6 +147,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -128,6 +162,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -141,6 +176,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -154,6 +190,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -167,6 +204,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));
@@ -180,6 +218,7 @@ public class OrderController {
         double unitPrice = detail.getUnitPrice();
         String ItemsName = detail.getItemsName();
         double totalPrice = unitPrice*value;
+        subTotal += totalPrice;
 
         itemTMS.add(new OrderTM(totalPrice,unitPrice,value,ItemsName));
         tblCart.setItems(FXCollections.observableList(itemTMS));

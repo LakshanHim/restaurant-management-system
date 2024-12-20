@@ -227,7 +227,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button layoutX="1337.0" layoutY="364.0" mnemonicParsing="false" style="-fx-background-color: #50f233;" text="Place Order" textFill="WHITE">
+            <Button layoutX="1337.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnPlaceOrder" style="-fx-background-color: #50f233;" text="Place Order" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
