@@ -15,6 +15,10 @@ public class OrderDto {
         this.orderDetail = orderDetail;
     }
 
+    public OrderDto() {
+
+    }
+
     public String getOrderTime() {
         return orderTime;
     }

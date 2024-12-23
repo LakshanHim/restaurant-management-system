@@ -5,9 +5,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -31,7 +33,7 @@
       </ScrollPane>
    </center>
    <right>
-      <VBox alignment="TOP_CENTER" prefHeight="737.0" prefWidth="368.0" spacing="10.0" style="-fx-padding: 10;">
+      <VBox alignment="TOP_CENTER" prefHeight="489.0" prefWidth="368.0" spacing="10.0" style="-fx-padding: 10;">
          <children>
             <TableView fx:id="orderTable" prefHeight="365.0" prefWidth="294.0">
                <columns>
@@ -41,6 +43,46 @@
                </columns>
             </TableView>
             <Button onAction="#onAddClicked" text="PlaceOrder" />
+            <Pane prefHeight="249.0" prefWidth="338.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="29.0" layoutY="14.0" text="Sub total:-">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="29.0" layoutY="60.0" text="Amount  :-">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAmount" layoutX="140.0" layoutY="62.0" onAction="#amount" />
+                  <Label layoutX="29.0" layoutY="111.0" text="Balance   :-">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="27.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnPay" prefHeight="28.0" prefWidth="300.0" text="Pay">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="27.0" layoutY="198.0" mnemonicParsing="false" onAction="#btnRecept" prefHeight="28.0" prefWidth="300.0" text="Recept">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lblSubTotal" layoutX="140.0" layoutY="14.0" text="Label">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblBalance" layoutX="140.0" layoutY="111.0" text="Label">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </VBox>
    </right>

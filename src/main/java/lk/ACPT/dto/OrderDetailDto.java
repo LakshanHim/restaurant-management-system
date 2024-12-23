@@ -24,6 +24,16 @@ public class OrderDetailDto {
         this.totalPrice = total;
     }
 
+    public OrderDetailDto(double aDouble, int anInt, String string) {
+        this.qty = anInt;
+        this.itemsName = string;
+        this.totalPrice = aDouble;
+    }
+
+    public OrderDetailDto(String name) {
+        this.itemsName = name;
+    }
+
     public String getItemsName() {
         return itemsName;
     }

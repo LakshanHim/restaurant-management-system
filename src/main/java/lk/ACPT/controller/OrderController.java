@@ -1,20 +1,19 @@
 package lk.ACPT.controller;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lk.ACPT.db.DBConnection;
 import lk.ACPT.dto.OrderDetailDto;
@@ -58,6 +57,131 @@ public class OrderController {
     @FXML
     private TableColumn<OrderTM, Double> column3;
 
+    @FXML
+    private Label lblBalance;
+
+    @FXML
+    private Label lblSubTotal;
+
+    @FXML
+    private TextField txtAmount;
+
+    double balance=0;
+
+    @FXML
+    void amount(ActionEvent event) {
+        double amount = Double.parseDouble(txtAmount.getText());
+        balance = amount-subTotal;
+        lblBalance.setText("$"+balance);
+    }
+
+    @FXML
+    void btnPay(ActionEvent event) {
+        if (balance > 0) {
+            // Clear order details
+            orderTable.getItems().clear();
+            lblSubTotal.setText("");
+            lblBalance.setText("");
+            txtAmount.clear();
+
+            // Show success alert
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Payment Successful");
+            alert.setHeaderText("Payment Completed");
+            alert.setContentText("The bill has been paid successfully.");
+
+            // Set the owner of the alert to the current stage to ensure it pops up inside the stage
+            Stage stage = (Stage) lblSubTotal.getScene().getWindow();
+            alert.initOwner(stage);  // Set the alert's owner to the current stage
+            alert.showAndWait();
+
+        } else {
+            // Show error alert if balance is insufficient
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Payment Error");
+            alert.setHeaderText("Insufficient Amount");
+            alert.setContentText("Your amount is less than the total bill. Please check and try again.");
+
+            // Set the owner of the error alert to the current stage
+            Stage stage = (Stage) lblSubTotal.getScene().getWindow();
+            alert.initOwner(stage);  // Set the alert's owner to the current stage
+            alert.showAndWait();
+        }
+    }
+
+
+
+    @FXML
+    void btnRecept(ActionEvent event) throws SQLException, ClassNotFoundException {
+        int lastOrderNum = OrderModel.recipt();
+        OrderDto orderDto = OrderModel.orderSearch(lastOrderNum);
+
+        String orderDate = orderDto.getOrderDate();
+        String orderTime = orderDto.getOrderTime();
+        double totalAmount = orderDto.getSubTotal();
+
+        // Create bill content
+        VBox billContent = new VBox(10);
+        billContent.setStyle("-fx-padding: 20; -fx-font-family: 'Courier New'; -fx-font-size: 12;");
+
+        // Create the title and center it
+        StackPane titlePane = new StackPane();
+        Text title = new Text("ChefD");
+        title.setStyle("-fx-font-size: 18; -fx-font-weight: bold;");
+        titlePane.getChildren().add(title);
+        StackPane.setAlignment(title, Pos.CENTER);
+
+        // Add the title to the bill content
+        billContent.getChildren().add(titlePane);
+
+        // Add order information
+        Text orderInfo = new Text("Order Number: " + lastOrderNum +
+                "\nDate: " + orderDate + "\nTime: " + orderTime + "\n\nItems:");
+        billContent.getChildren().add(orderInfo);
+
+        try {
+            ArrayList<OrderDetailDto> items = OrderModel.orderDetailSearch(lastOrderNum);
+
+            // Add each item to the receipt
+            for (OrderDetailDto item : items) {
+                Text itemText = new Text("- " + item.getItemsName());
+                billContent.getChildren().add(itemText);
+            }
+        } catch (Exception e) {
+            System.out.println("Error retrieving order details: " + e.getMessage());
+        }
+
+        // Add the total amount
+        Text total = new Text("\nTotal Amount: $" + totalAmount);
+        total.setStyle("-fx-font-weight: bold;");
+        billContent.getChildren().add(total);
+
+        // Create a new Scene
+        Scene scene = new Scene(billContent, 300, 400);
+
+        // Create a new Stage for the receipt
+        Stage receiptStage = new Stage();
+        receiptStage.setScene(scene);
+        receiptStage.setTitle("Order Receipt");
+
+        // Resize the stage based on content
+        receiptStage.sizeToScene();
+
+        // Set the owner of the new stage
+        Stage currentStage = (Stage) lblSubTotal.getScene().getWindow();
+        receiptStage.initOwner(currentStage);
+
+        // Show the stage
+        receiptStage.show();
+    }
+
+
+
+
+
+
+
+
     double subTotal=0;
     private ArrayList<OrderDetailDto> orderDetailDtos;
     String formatDate;
@@ -67,6 +191,8 @@ public class OrderController {
     @FXML
     public void initialize() {
         orderDetailDtos = new ArrayList<>();
+        lblSubTotal.setText("$"+subTotal);
+        lblBalance.setText("$"+balance);
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
@@ -208,6 +334,9 @@ public class OrderController {
         else {
             System.out.println("not updated");
         }
+
+        lblSubTotal.setText("$"+subTotal);
+
 
     }
 }
