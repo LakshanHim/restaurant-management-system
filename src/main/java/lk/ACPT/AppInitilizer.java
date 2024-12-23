@@ -18,31 +18,31 @@ public class AppInitilizer extends Application {
     @Override
     public void start(Stage primaryStage)  {
 
-        try {
-            AnchorPane load = null;
-            load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
-            Scene scene = new Scene(load);
-            primaryStage.setScene(scene);
-            primaryStage.initStyle(StageStyle.UNDECORATED);
-            primaryStage.centerOnScreen();
-            primaryStage.show();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-
-
 //        try {
-//            BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
+//            AnchorPane load = null;
+//            load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
 //            Scene scene = new Scene(load);
 //            primaryStage.setScene(scene);
-//            primaryStage.setFullScreen(true);
+//            primaryStage.initStyle(StageStyle.UNDECORATED);
 //            primaryStage.centerOnScreen();
 //            primaryStage.show();
 //        } catch (IOException e) {
-////            throw new RuntimeException(e);
 //            System.out.println(e.getMessage());
 //        }
+
+
+
+        try {
+            BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
+            Scene scene = new Scene(load);
+            primaryStage.setScene(scene);
+            primaryStage.setFullScreen(true);
+            primaryStage.centerOnScreen();
+            primaryStage.show();
+        } catch (IOException e) {
+//            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+        }
 
     }
 }

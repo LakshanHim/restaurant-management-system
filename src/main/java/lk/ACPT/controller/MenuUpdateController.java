@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,6 +39,9 @@ public class MenuUpdateController {
     @FXML
     private TextField txtItemName, txtName, txtPrice, txtDesc;
 
+    @FXML
+    private Button txtimage;
+
 
     @FXML
     void btnBack(ActionEvent event) throws IOException {
@@ -57,11 +61,16 @@ public class MenuUpdateController {
         if (menu != null) {
             txtPrice.setText(String.valueOf(menu.getUnitPrice()));  // Display the current price in the update field
             txtDesc.setText(menu.getDescription());
+            String imagePath1 = menu.getImagePath();
+            selectedImageFile = new File(imagePath1);
+
+
 
             String imagePath = menu.getImagePath();
             if (imagePath != null && !imagePath.isEmpty()) {
                 Image image = new Image("file:" + imagePath); // Assuming the image is stored locally
                 imgView.setImage(image);
+
             }
         } else {
             Alert noItemFoundAlert = new Alert(Alert.AlertType.WARNING);

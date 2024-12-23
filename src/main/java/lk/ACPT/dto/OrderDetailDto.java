@@ -18,6 +18,12 @@ public class OrderDetailDto {
     public OrderDetailDto(double totalPrice) {
     }
 
+    public OrderDetailDto(String itemName, int quantity, double total) {
+        this.itemsName = itemName;
+        this.qty = quantity;
+        this.totalPrice = total;
+    }
+
     public String getItemsName() {
         return itemsName;
     }

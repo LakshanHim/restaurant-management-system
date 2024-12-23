@@ -95,38 +95,27 @@ public class MenuModel {
         try {
             Connection connection = DBConnection.getDBConnection().getConnection();
 
-            // Check if the connection is valid before proceeding
-            if (connection == null || connection.isClosed()) {
-                System.out.println("Connection is not valid or already closed.");
-            } else {
-                System.out.println("Connection is valid.");
-            }
-
-            // Print out the menu details for debugging
-            System.out.println("Updating item: " + menu.getName());
-            System.out.println("Price: " + menu.getUnitPrice());
-            System.out.println("Description: " + menu.getDescription());
-
-            // SQL query for updating the menu item
-            String sql = "UPDATE menu SET unitPrice = ?, description = ? imagePath=? WHERE itemName = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE menu SET unitPrice=?, description=?, imagePath=? WHERE itemName=?");
 
             // Set the values from the MenuDto object
             preparedStatement.setObject(1, menu.getUnitPrice());  // unitPrice
             preparedStatement.setObject(2, menu.getDescription()); // description
-            preparedStatement.setObject(3, menu.getName());// itemName to identify the item
-            preparedStatement.setObject(4, menu.getImagePath());
+            preparedStatement.setObject(3, menu.getImagePath());   // imagePath
+            preparedStatement.setObject(4, menu.getName());        // itemName (used in WHERE clause)
 
             // Execute the update and check if any rows were affected
             int rowsUpdated = preparedStatement.executeUpdate();
 
-            // Return true if at least one row was updated
-            return rowsUpdated > 0;
+            if (rowsUpdated > 0) {
+                return true;
+            } else {
+                return false;
+            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return false;
     }
 

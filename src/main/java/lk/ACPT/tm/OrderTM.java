@@ -1,47 +1,37 @@
 package lk.ACPT.tm;
 
 public class OrderTM {
-    private String itemName;
-    private int qty;
-    private double unitPrice;
-    private double totalPrice;
+    private String item;
+    private int quantity;
+    private double price;
 
-    public OrderTM(double totalPrice, double unitPrice, int qty, String itemName) {
-        this.totalPrice = totalPrice;
-        this.unitPrice = unitPrice;
-        this.qty = qty;
-        this.itemName = itemName;
+    public OrderTM(String item, int quantity, double price) {
+        this.item = item;
+        this.quantity = quantity;
+        this.price = price;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getItem() {
+        return item;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setItem(String item) {
+        this.item = item;
     }
 
-    public int getQty() {
-        return qty;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public double getUnitPrice() {
-        return unitPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setUnitPrice(double unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

@@ -9,50 +9,53 @@ import java.sql.*;
 public class OrderModel {
 
     public static boolean placeOrder(OrderDto orderDto) throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getDBConnection().getConnection();
-        connection.setAutoCommit(false);
 
-        PreparedStatement preparedStatement = connection.prepareStatement("insert into orders(orderDate,orderTime,totalAmount ) values(?,?,?)", Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setObject(1, orderDto.getOrderDate());
-        preparedStatement.setObject(2, orderDto.getOrderTime());
-        preparedStatement.setObject(3, orderDto.getSubTotal());
+        try {
+            Connection connection = DBConnection.getDBConnection().getConnection();
+            connection.setAutoCommit(false);
 
-        int i = preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into orders(orderDate,orderTime,totalAmount ) values(?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setObject(1, orderDto.getOrderDate());
+            preparedStatement.setObject(2, orderDto.getOrderTime());
+            preparedStatement.setObject(3, orderDto.getSubTotal());
 
-        if (i > 0) {
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            int i = preparedStatement.executeUpdate();
 
-            if (generatedKeys.next()) {
-                int id = generatedKeys.getInt(1);
+            if (i > 0) {
+                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
 
-                for (OrderDetailDto dto : orderDto.getOrderDetail()) {
-                    PreparedStatement preparedStatement1 = connection.prepareStatement("insert into order_details(oid,price) values(?,?)");
-                    preparedStatement1.setObject(1, id);
-                    preparedStatement1.setObject(2, dto.getTotalPrice());
+                if (generatedKeys.next()) {
+                    int id = generatedKeys.getInt(1);
 
-                    System.out.println(dto.getTotalPrice());
+                    for (OrderDetailDto dto : orderDto.getOrderDetail()) {
+                        PreparedStatement preparedStatement1 = connection.prepareStatement("insert into order_details(oid,itemname,qty,price) values(?,?,?,?)");
+                        preparedStatement1.setObject(1, id);
+                        preparedStatement1.setObject(2, dto.getItemsName());
+                        preparedStatement1.setObject(3, dto.getQty());
+                        preparedStatement1.setObject(4, dto.getTotalPrice());
 
+                        int i1 = preparedStatement1.executeUpdate();
+                        if (i1 <= 0) {
+                            connection.rollback();
+                            connection.setAutoCommit(true);
+                            return false;
+                        }
 
-
-                    int i1 = preparedStatement1.executeUpdate();
-                    if (i1 <= 0) {
-                        connection.rollback();
-                        connection.setAutoCommit(true);
-                        return false;
                     }
-
                 }
-            }
-            connection.commit();
-            connection.setAutoCommit(true);
-            System.out.println("updated");
-            return true;
-        } else {
-            connection.rollback();
-            connection.setAutoCommit(true);
-            return false;
-        }
+                connection.commit();
+                connection.setAutoCommit(true);
+                return true;
 
+            } else {
+                connection.rollback();
+                connection.setAutoCommit(true);
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
 }

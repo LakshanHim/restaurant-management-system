@@ -57,7 +57,7 @@
 
       <TextField fx:id="txtDesc" layoutX="225.0" layoutY="247.0" />
 
-      <Button layoutX="225.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: blue;" text="Upload Image" textFill="WHITE" />
+      <Button fx:id="txtimage" layoutX="225.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: blue;" text="Upload Image" textFill="WHITE" />
 
       <!-- ImageView to display image -->
       <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="391.0" layoutY="174.0" />
