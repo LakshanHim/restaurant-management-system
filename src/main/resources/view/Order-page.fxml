@@ -4,9 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="rootOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.OrderController">
@@ -24,9 +23,8 @@
       </HBox>
    </top>
    <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER" />
-       <ScrollPane fx:id="scrollPane">
-           <VBox fx:id="cardContainer" spacing="10" />
-       </ScrollPane>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true">
+         <GridPane fx:id="cardGrid" style="-fx-padding: 10;" />
+      </ScrollPane>
    </center>
 </BorderPane>

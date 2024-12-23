@@ -20,7 +20,7 @@ public class AppInitilizer extends Application {
 
         try {
             AnchorPane load = null;
-            load = FXMLLoader.load(getClass().getResource("/view/MenuUpdate-page.fxml"));
+            load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
             Scene scene = new Scene(load);
             primaryStage.setScene(scene);
             primaryStage.initStyle(StageStyle.UNDECORATED);

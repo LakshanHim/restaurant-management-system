@@ -5,10 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.converter.DoubleStringConverter;
 import lk.ACPT.model.MenuModel;
 import lk.ACPT.tm.MenuTM;
 
@@ -24,6 +27,15 @@ public class LoadViewController {
     private TableView<MenuTM> tblView;
 
     @FXML
+    private TableColumn<MenuTM, String> colItemName;
+
+    @FXML
+    private TableColumn<MenuTM, Double> colUnitPrice;
+
+    @FXML
+    private TableColumn<MenuTM, String> colDescription;
+
+    @FXML
     void btnBack(ActionEvent event) throws IOException {
         Stage stage = (Stage) this.rootLoadView.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Select-page.fxml"));
@@ -33,18 +45,43 @@ public class LoadViewController {
     }
 
     public void initialize() {
-        // Load data for the TableView
-        ArrayList<MenuTM> menu = MenuModel.LoadForm();
-
-        // Configure TableView columns
+        // Bind columns to properties
         tblView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-        tblView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("itemName"));
-        tblView.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        tblView.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("description"));
+        colItemName.setCellValueFactory(new PropertyValueFactory<>("itemName"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
 
-        // Set data into the TableView
+        // Enable editing for itemName, unitPrice, and description
+        colItemName.setCellFactory(TextFieldTableCell.forTableColumn());
+        colUnitPrice.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+        colDescription.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        tblView.setEditable(true);
+
+        // Set listeners to update the database when a cell is edited
+        colItemName.setOnEditCommit(event -> {
+            MenuTM selectedMenu = event.getRowValue();
+            selectedMenu.setItemName(event.getNewValue());
+            MenuModel.updateMenu(selectedMenu);
+        });
+
+        colUnitPrice.setOnEditCommit(event -> {
+            MenuTM selectedMenu = event.getRowValue();
+            selectedMenu.setUnitPrice(event.getNewValue());
+            MenuModel.updateMenu(selectedMenu);
+        });
+
+        colDescription.setOnEditCommit(event -> {
+            MenuTM selectedMenu = event.getRowValue();
+            selectedMenu.setDescription(event.getNewValue());
+            MenuModel.updateMenu(selectedMenu);
+        });
+
+        // Load data into TableView
+        ArrayList<MenuTM> menu = MenuModel.LoadForm();
         tblView.setItems(FXCollections.observableList(menu));
     }
+
 
 
 
