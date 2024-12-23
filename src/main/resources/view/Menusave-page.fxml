@@ -7,6 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
+<?import javafx.scene.control.TextArea?>
 <AnchorPane fx:id="rootAddmenu" prefHeight="414.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.MenuSaveControlller">
    <children>
       <Label layoutX="203.0" layoutY="20.0" text="Add menu items">
@@ -21,7 +22,13 @@
       </Button>
       <TextField fx:id="txtName" layoutX="244.0" layoutY="149.0" prefHeight="27.0" prefWidth="161.0" />
       <TextField fx:id="txtUnitaPrice" layoutX="243.0" layoutY="219.0" prefHeight="27.0" prefWidth="162.0" />
-      <Button layoutX="296.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
+      <TextArea fx:id="txtDescription" layoutX="244.0" layoutY="269.0" prefHeight="60.0" prefWidth="161.0" wrapText="true" />
+      <Button layoutX="243.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: blue;" text="Upload Image" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="296.0" layoutY="374.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: green;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -36,5 +43,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
+      <Label layoutX="56.0" layoutY="273.0" text="Enter the Item Description:-">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
+

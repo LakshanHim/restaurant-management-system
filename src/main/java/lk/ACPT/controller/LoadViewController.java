@@ -40,6 +40,7 @@ public class LoadViewController {
         tblView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("itemName"));
         tblView.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        tblView.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("description"));
 
         // Set data into the TableView
         tblView.setItems(FXCollections.observableList(menu));

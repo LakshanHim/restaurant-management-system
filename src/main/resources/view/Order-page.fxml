@@ -1,296 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1556.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.OrderController">
+<BorderPane fx:id="rootOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.OrderController">
    <top>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="899.0" spacing="670.0" style="-fx-background-color: #243642;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="838.0" spacing="500.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnBack" style="-fx-background-color: green;" text="Back" textFill="WHITE">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
+            <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBack" text="Back" />
+            <Label text="Order">
                <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Label prefHeight="40.0" prefWidth="84.0" styleClass="odr" text="Orders" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#bynClose" style="-fx-background-color: red;" text="Close" textFill="#fcfcfc">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#btnClose" text="Close" />
          </children>
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="371.0" prefWidth="42.0" style="-fx-background-color: #387478;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: yellow;" BorderPane.alignment="CENTER" />
+       <ScrollPane fx:id="scrollPane">
+           <VBox fx:id="cardContainer" spacing="10" />
+       </ScrollPane>
    </center>
-   <left>
-      <Pane prefHeight="766.0" prefWidth="1557.0" style="-fx-background-color: #91AC8F;" BorderPane.alignment="CENTER">
-         <children>
-            <TableView fx:id="tblCart" layoutX="963.0" layoutY="18.0" prefHeight="332.0" prefWidth="488.0">
-              <columns>
-                <TableColumn prefWidth="160.7999267578125" text="Items Name" />
-                  <TableColumn prefWidth="69.5999755859375" text="qty" />
-                  <TableColumn prefWidth="124.0" text="Unit Price" />
-                  <TableColumn prefWidth="132.0" text="Price" />
-              </columns>
-            </TableView>
-            <Pane layoutX="22.0" layoutY="24.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="114.0" fitWidth="113.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Chicken-Fried-Rice.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="21.0" layoutY="94.0" text="Chicken Fride Rice">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd1" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="56.0" layoutY="113.0" text="RS:750" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi1" layoutX="14.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="200.0" layoutY="23.0" prefHeight="171.0" prefWidth="154.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="75.0" fitWidth="111.0" layoutX="16.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/nudools.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="43.0" layoutY="85.0" text="noodles">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="95.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnAdd2" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="46.0" layoutY="104.0" text="RS:500" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi2" layoutX="13.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <ImageView fitHeight="97.0" fitWidth="119.0" layoutX="512.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" />
-            <Pane layoutX="383.0" layoutY="25.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/hyderabadi-biryani-recipe-chicken-500x375.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="55.0" layoutY="100.0" text="Biryani">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd3" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="56.0" layoutY="114.0" text="RS:750" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi3" layoutX="17.0" layoutY="140.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="565.0" layoutY="24.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/kottu.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="35.0" layoutY="85.0" text="Chicken Kottu">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd4" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="57.0" layoutY="104.0" text="RS:600" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi4" layoutX="14.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="750.0" layoutY="24.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/Nasi-Goreng-receta-500x375.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="39.0" layoutY="100.0" text="Nasi-Goreng">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd5" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="51.0" layoutY="119.0" text="RS:1600" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi5" layoutX="10.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="22.0" layoutY="210.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="90.0" fitWidth="97.0" layoutX="32.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/grill-plate.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="46.0" layoutY="97.0" text="Grill-Plate">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd6" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="52.0" layoutY="116.0" text="RS:5500" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi6" layoutX="17.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="200.0" layoutY="210.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="95.0" fitWidth="115.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../images/seafood.png" />
-                  </ImageView>
-                  <Label layoutX="28.0" layoutY="96.0" text="seafood platters">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd7" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="51.0" layoutY="115.0" text="RS:6000" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi7" layoutX="22.0" layoutY="139.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Pane layoutX="383.0" layoutY="210.0" prefHeight="169.0" prefWidth="153.0" style="-fx-background-color: #387478;">
-               <children>
-                  <ImageView fitHeight="81.0" fitWidth="127.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/burger.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="57.0" layoutY="95.0" text="Burger">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="85.0" layoutY="139.0" mnemonicParsing="false" onAction="#btnAdd8" styleClass="addHover" text="ADD" textFill="WHITE" />
-                  <Label layoutX="57.0" layoutY="112.0" text="RS:300" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Label>
-                  <Spinner fx:id="spi8" layoutX="16.0" layoutY="138.0" prefHeight="11.0" prefWidth="58.0" />
-               </children>
-            </Pane>
-            <Label layoutX="1050.0" layoutY="557.0" prefHeight="28.0" prefWidth="155.0" text="Sub Total        :-">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Button layoutX="1337.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnPlaceOrder" style="-fx-background-color: #50f233;" text="Place Order" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Button>
-            <Label layoutX="1049.0" layoutY="422.0" prefHeight="31.0" prefWidth="152.0" text="Order Number :-">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="1048.0" layoutY="469.0" text="Order Date       :-">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="1048.0" layoutY="507.0" prefHeight="37.0" prefWidth="154.0" text="Order Time      :-">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblNum" layoutX="1205.0" layoutY="424.0" text="OrderNum" textFill="#00f24d">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblDate" layoutX="1207.0" layoutY="469.0" text="OrderDate" textFill="#00f24d">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblTime" layoutX="1207.0" layoutY="512.0" text="OrderTime" textFill="#00f24d">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblPrice" layoutX="1207.0" layoutY="557.0" text="OrderPrice" textFill="#00f24d">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="1050.0" layoutY="598.0" prefHeight="28.0" prefWidth="155.0" text="Pay Cash         :-">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCash" layoutX="1207.0" layoutY="600.0" onAction="#Payed" />
-            <Separator layoutX="1201.0" layoutY="585.0" prefHeight="4.0" prefWidth="217.0" style="-fx-background-color: black;" />
-            <Label layoutX="1050.0" layoutY="650.0" prefHeight="56.0" prefWidth="105.0" text="Remaining &#10;   amount " textFill="#c71111">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Separator layoutX="1199.0" layoutY="645.0" prefHeight="5.0" prefWidth="216.0" style="-fx-background-color: black;" />
-            <Separator layoutX="1199.0" layoutY="704.0" prefHeight="11.0" prefWidth="226.0" style="-fx-background-color: black;" />
-            <Label fx:id="lblRemain" layoutX="1207.0" layoutY="665.0" text="Remaining" textFill="#d4140a">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <VBox layoutX="1500.0" layoutY="-1.0" prefHeight="951.0" prefWidth="62.0" style="-fx-background-color: #66785F;" />
-         </children>
-         <BorderPane.margin>
-            <Insets right="30.0" />
-         </BorderPane.margin>
-      </Pane>
-   </left>
 </BorderPane>

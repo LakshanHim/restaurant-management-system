@@ -15,6 +15,9 @@ public class OrderDetailDto {
 
     }
 
+    public OrderDetailDto(double totalPrice) {
+    }
+
     public String getItemsName() {
         return itemsName;
     }

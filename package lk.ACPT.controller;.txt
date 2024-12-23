@@ -1,0 +1,82 @@
+package lk.ACPT.controller;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import lk.ACPT.dto.MenuDto;
+import lk.ACPT.model.MenuModel;
+
+import java.io.IOException;
+
+public class MenuUpdateController {
+
+    @FXML
+    private AnchorPane rootUpdate;
+
+    @FXML
+    private TextField txtId;
+
+    @FXML
+    private TextField txtItemName, txtName, txtPrice, txtDesc;
+    
+
+    @FXML
+    void btnBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootUpdate.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Select-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+
+    }
+
+    @FXML
+    void btnSave(ActionEvent event) {}
+        String itemName = txtItemName.getText();  // Item name to search and update
+        String updatedName = txtName.getText();  // New name for the item
+        double updatedPrice = Double.parseDouble(txtPrice.getText());  // Updated price
+        String updatedDesc = txtDesc.getText();
+
+        // Update the menu item with new details
+        boolean updated = MenuModel.UpdateForm(itemName, updatedName, updatedPrice, updatedDesc); // Pass updated details to the model
+
+        if (updated) {
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Update Successful");
+            successAlert.setHeaderText("Item Updated");
+            successAlert.setContentText("The item has been successfully updated.");
+            successAlert.showAndWait();
+        } else {
+            Alert failureAlert = new Alert(Alert.AlertType.WARNING);
+            failureAlert.setTitle("Update Failed");
+            failureAlert.setHeaderText("No Changes Made");
+            failureAlert.setContentText("The item could not be updated. Please try again.");
+            failureAlert.showAndWait();
+        }
+    }
+
+    @FXML
+    void btnSearch(ActionEvent event) {
+        String itemName = txtItemName.getText(); // Get the name of the item to search
+
+        // Search by item name
+        MenuDto menu = MenuModel.SearchForm(itemName);  // Pass itemName to the SearchForm method
+        if (menu != null) {
+            txtName.setText(menu.getName());  // Display the current name in the update field
+            txtPrice.setText(String.valueOf(menu.getUnitPrice()));  // Display the current price in the update field
+            txtDesc.setText(menu.getDescription());
+        } else {
+            Alert noItemFoundAlert = new Alert(Alert.AlertType.WARNING);
+            noItemFoundAlert.setTitle("Item Not Found");
+            noItemFoundAlert.setHeaderText("No Item Found");
+            noItemFoundAlert.setContentText("No item was found with the name: " + itemName);
+            noItemFoundAlert.showAndWait();
+        }
+    }
+
+
+}

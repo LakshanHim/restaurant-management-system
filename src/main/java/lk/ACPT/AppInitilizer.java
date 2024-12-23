@@ -16,21 +16,33 @@ public class AppInitilizer extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
-        Scene scene = new Scene(load);
-        primaryStage.setScene(scene);
-//        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.centerOnScreen();
-        primaryStage.show();
+    public void start(Stage primaryStage)  {
+
+        try {
+            AnchorPane load = null;
+            load = FXMLLoader.load(getClass().getResource("/view/MenuUpdate-page.fxml"));
+            Scene scene = new Scene(load);
+            primaryStage.setScene(scene);
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.centerOnScreen();
+            primaryStage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
 
-//        BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
-//        Scene scene = new Scene(load);
-//        primaryStage.setScene(scene);
-//        primaryStage.setFullScreen(true);
-//        primaryStage.centerOnScreen();
-//        primaryStage.show();
+
+//        try {
+//            BorderPane load = FXMLLoader.load(getClass().getResource("/view/Order-page.fxml"));
+//            Scene scene = new Scene(load);
+//            primaryStage.setScene(scene);
+//            primaryStage.setFullScreen(true);
+//            primaryStage.centerOnScreen();
+//            primaryStage.show();
+//        } catch (IOException e) {
+////            throw new RuntimeException(e);
+//            System.out.println(e.getMessage());
+//        }
 
     }
 }

@@ -14,13 +14,14 @@ public class DBConnection {
 
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant", "root", "acpt");
     }
-    public static DBConnection getDBConnection() throws SQLException, ClassNotFoundException {
+    public static   DBConnection getDBConnection() throws SQLException, ClassNotFoundException {
         if(dbConnection == null){
             dbConnection = new DBConnection();
         }
         return dbConnection;
     }
     public Connection getConnection() {
+
         return connection;
     }
 }

@@ -6,11 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lk.ACPT.dto.MenuDto;
 import lk.ACPT.model.MenuModel;
 
+
+import java.io.File;
 import java.io.IOException;
 
 public class MenuUpdateController {
@@ -19,13 +24,20 @@ public class MenuUpdateController {
     private AnchorPane rootUpdate;
 
     @FXML
+    private ImageView imgView;
+
+    @FXML
     private TextField txtId;
 
     @FXML
-    private TextField txtName;
+    private FileChooser fileChooser = new FileChooser();
 
     @FXML
-    private TextField txtPrice;
+    private File selectedImageFile;
+
+    @FXML
+    private TextField txtItemName, txtName, txtPrice, txtDesc;
+
 
     @FXML
     void btnBack(ActionEvent event) throws IOException {
@@ -37,39 +49,62 @@ public class MenuUpdateController {
     }
 
     @FXML
-    void btnSave(ActionEvent event) {
-        int id = Integer.parseInt(txtId.getText());
-        String name = txtName.getText();
-        double unitPrice = Double.parseDouble(txtPrice.getText());
+    void btnSearch(ActionEvent event) {
+        String itemName = txtItemName.getText(); // Get the name of the item to search
 
-        boolean b = MenuModel.UpdateForm(new MenuDto(id,name, unitPrice));
-        if (b) {
-            Alert updateAlert = new Alert(Alert.AlertType.INFORMATION);
-            updateAlert.setTitle("Notification");
-            updateAlert.setHeaderText("Update Successful");
-            updateAlert.setContentText("The data has been successfully updated!");
-            updateAlert.showAndWait();
-        }
-        else {
-            Alert noUpdateAlert = new Alert(Alert.AlertType.WARNING);
-            noUpdateAlert.setTitle("Notification");
-            noUpdateAlert.setHeaderText("No Update");
-            noUpdateAlert.setContentText("No changes detected. Update not performed.");
-            noUpdateAlert.showAndWait();
-        }
+        // Search by item name
+        MenuDto menu = MenuModel.SearchForm(itemName);  // Pass itemName to the SearchForm method
+        if (menu != null) {
+            txtPrice.setText(String.valueOf(menu.getUnitPrice()));  // Display the current price in the update field
+            txtDesc.setText(menu.getDescription());
 
+            String imagePath = menu.getImagePath();
+            if (imagePath != null && !imagePath.isEmpty()) {
+                Image image = new Image("file:" + imagePath); // Assuming the image is stored locally
+                imgView.setImage(image);
+            }
+        } else {
+            Alert noItemFoundAlert = new Alert(Alert.AlertType.WARNING);
+            noItemFoundAlert.setTitle("Item Not Found");
+            noItemFoundAlert.setHeaderText("No Item Found");
+            noItemFoundAlert.setContentText("No item was found with the name: " + itemName);
+            noItemFoundAlert.showAndWait();
+        }
     }
 
     @FXML
-    void btnSearch(ActionEvent event) {
-        int id = Integer.parseInt(txtId.getText());
-
-        MenuDto menu =  MenuModel.SearchForm(id);
-        txtName.setText(menu.getName());
-        txtPrice.setText(String.valueOf(menu.getUnitPrice()));
-
-
-
+    void btnUploadImage(ActionEvent event) {
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.jpeg"));
+        selectedImageFile = fileChooser.showOpenDialog(null);
+        if (selectedImageFile != null) {
+            System.out.println("Image selected: " + selectedImageFile.getName());
+        }
     }
+
+    @FXML
+    void btnSave(ActionEvent event) {
+        String itemName = txtItemName.getText();  // Item name to search and update
+        double updatedPrice = Double.parseDouble(txtPrice.getText());  // Updated price
+        String updatedDesc = txtDesc.getText();   // Updated description
+        String imagePath = selectedImageFile != null ? selectedImageFile.getAbsolutePath() : null;
+
+        // Update the menu item with new details
+        boolean updated = MenuModel.UpdateForm(new MenuDto(itemName,updatedPrice,updatedDesc,imagePath));  // Pass updated details to the model
+
+        if (updated) {
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Update Successful");
+            successAlert.setHeaderText("Item Updated");
+            successAlert.setContentText("The item has been successfully updated.");
+            successAlert.showAndWait();
+        } else {
+            Alert failureAlert = new Alert(Alert.AlertType.WARNING);
+            failureAlert.setTitle("Update Failed");
+            failureAlert.setHeaderText("No Changes Made");
+            failureAlert.setContentText("The item could not be updated. Please try again.");
+            failureAlert.showAndWait();
+        }
+    }
+
 
 }

@@ -3,9 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="rootUpdate" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.MenuUpdateController">
    <children>
@@ -14,38 +14,52 @@
             <Font name="System Bold" size="27.0" />
          </font>
       </Label>
+
       <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnBack" style="-fx-background-color: gray;" text="Back">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="txtId" layoutX="210.0" layoutY="107.0" />
-      <TextField fx:id="txtName" layoutX="210.0" layoutY="161.0" />
-      <TextField fx:id="txtPrice" layoutX="210.0" layoutY="208.0" />
-      <Label layoutX="43.0" layoutY="109.0" text="Enter id of food:-">
+
+      <TextField fx:id="txtItemName" layoutX="225.0" layoutY="107.0" />
+
+      <TextField fx:id="txtPrice" layoutX="225.0" layoutY="174.0" />
+
+      <Label layoutX="21.0" layoutY="100.0" prefHeight="39.0" prefWidth="150.0" text="Enter name of food &#10;to search">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="163.0" text="Enter update name:-">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
+
       <Button layoutX="409.0" layoutY="105.0" mnemonicParsing="false" onAction="#btnSearch" style="-fx-background-color: green;" text="Search" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="43.0" layoutY="210.0" text="Enter update price:-">
+
+      <Label layoutX="21.0" layoutY="176.0" text="Enter updated price:-">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="245.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: red;" text="Save" textFill="#ececec">
+
+      <Button layoutX="268.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: red;" text="Save" textFill="#ececec">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
+
+      <Label layoutX="20.0" layoutY="249.0" text="Enter updated Description:-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+
+      <TextField fx:id="txtDesc" layoutX="225.0" layoutY="247.0" />
+
+      <Button layoutX="225.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: blue;" text="Upload Image" textFill="WHITE" />
+
+      <!-- ImageView to display image -->
+      <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="391.0" layoutY="174.0" />
    </children>
 </AnchorPane>
