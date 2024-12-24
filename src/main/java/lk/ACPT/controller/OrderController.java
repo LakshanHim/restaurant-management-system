@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -136,7 +138,7 @@ public class OrderController {
 
         // Add order information
         Text orderInfo = new Text("Order Number: " + lastOrderNum +
-                "\nDate: " + orderDate + "\nTime: " + orderTime + "\n\nItems:");
+                "\nDate: " + orderDate + "\nTime: " + orderTime + "   \n\nItems  " + "        qty" + "       price");
         billContent.getChildren().add(orderInfo);
 
         try {
@@ -144,7 +146,7 @@ public class OrderController {
 
             // Add each item to the receipt
             for (OrderDetailDto item : items) {
-                Text itemText = new Text("- " + item.getItemsName());
+                Text itemText = new Text("- " + item.getItemsName() + "    " + item.getQty() + "     " + item.getTotalPrice());
                 billContent.getChildren().add(itemText);
             }
         } catch (Exception e) {
@@ -173,14 +175,28 @@ public class OrderController {
 
         // Show the stage
         receiptStage.show();
+        print(billContent);
     }
 
 
+        private void print(VBox billContent) {
+            Printer printer = Printer.getDefaultPrinter();
+            if (printer == null) {
+                System.out.println("No printer found!");
+                return;
+            }
 
-
-
-
-
+            PrinterJob job = PrinterJob.createPrinterJob(printer);
+            if (job != null && job.showPrintDialog(billContent.getScene().getWindow())) {
+                boolean success = job.printPage(billContent);
+                if (success) {
+                    job.endJob();
+                    System.out.println("Bill printed successfully.");
+                } else {
+                    System.out.println("Failed to print the bill.");
+                }
+            }
+    }
 
     double subTotal=0;
     private ArrayList<OrderDetailDto> orderDetailDtos;

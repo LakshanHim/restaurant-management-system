@@ -103,7 +103,7 @@ public class OrderModel {
 
         // SQL query to fetch item names for the given order ID
         PreparedStatement preparedStatement = connection.prepareStatement(
-                "SELECT itemname FROM order_details WHERE oid = ?");
+                "SELECT * FROM order_details WHERE oid = ?");
         preparedStatement.setInt(1, id);
 
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -112,14 +112,10 @@ public class OrderModel {
         while (resultSet.next()) {
             // Using column name for clarity
             String itemName = resultSet.getString("itemname");
-            orderDetailDtos.add(new OrderDetailDto(itemName)); // Assuming OrderDetailDto has a matching constructor
+            int qty = resultSet.getInt("qty");
+            double price = resultSet.getDouble("price");
+            orderDetailDtos.add(new OrderDetailDto(itemName,qty,price)); // Assuming OrderDetailDto has a matching constructor
         }
-
-        // Logging retrieved item names for debugging
-        for (OrderDetailDto item : orderDetailDtos) {
-            System.out.println(item.getItemsName());
-        }
-
         return orderDetailDtos;
     }
 

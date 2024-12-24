@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootBill" prefHeight="451.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.PrintBillController">
+   <children>
+      <VBox alignment="CENTER" layoutY="48.0" prefHeight="404.0" prefWidth="170.0" spacing="50.0" style="-fx-background-color: green;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnOrderDetail" prefHeight="26.0" prefWidth="132.0" text="OrderDetails">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="197.0" mnemonicParsing="false" onAction="#btnAddMenu" prefHeight="26.0" prefWidth="132.0" text="Add Menu">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnLoadMenu" prefHeight="26.0" prefWidth="132.0" text="Load All Menu">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="277.0" mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="26.0" prefWidth="132.0" text="Menu Update">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnReport" prefHeight="26.0" prefWidth="132.0" text="Report">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <TextField fx:id="txtid" layoutX="284.0" layoutY="89.0" onAction="#btnId" />
+      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="752.0" style="-fx-background-color: black;">
+         <children>
+            <Label text="Print Bill" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label layoutX="198.0" layoutY="89.0" text="Bill No:-">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="306.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnPrint" text="Print Bill">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <TextArea fx:id="txtReceipt" layoutX="486.0" layoutY="72.0" prefHeight="348.0" prefWidth="230.0" />
+      <Button layoutX="344.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnExcel" text="Get Excel Sheet" />
+      <Label layoutX="198.0" layoutY="286.0" text="Get Excel Sheet:-">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

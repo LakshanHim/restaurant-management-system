@@ -94,4 +94,13 @@ public class SelectTypeController {
         clock.play(); // Start the clock
     }
 
+    @FXML
+    void btnBill(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/PrintBill-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.centerOnScreen();
+    }
+
 }

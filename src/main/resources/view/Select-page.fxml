@@ -59,5 +59,10 @@
             <Font name="Times New Roman Bold" size="17.0" />
          </font>
       </Button>
+      <Button layoutX="243.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnBill" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Print &#10;Bill&#10;Excel&#10;Sheet&#10;&#10;&#10;&#10;&#10;" textAlignment="CENTER">
+         <font>
+            <Font name="Times New Roman Bold" size="17.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
