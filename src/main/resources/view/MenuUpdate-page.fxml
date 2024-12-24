@@ -5,61 +5,44 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootUpdate" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.MenuUpdateController">
+<AnchorPane fx:id="rootUpdate" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #f5f5f5; -fx-padding: 20px;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.MenuUpdateController">
    <children>
-      <Label layoutX="210.0" layoutY="14.0" text="Menu Update ">
-         <font>
-            <Font name="System Bold" size="27.0" />
-         </font>
-      </Label>
+      <!-- Title Label -->
+      <Label layoutX="258.0" layoutY="12.0" style="-fx-font-size: 27px; -fx-font-weight: bold; -fx-text-fill: #333333; -fx-background-color: #4CAF50; -fx-padding: 10px 20px; -fx-background-radius: 15px;" text="Menu Update " />
 
-      <Button layoutX="30.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnBack" style="-fx-background-color: gray;" text="Back">
+      <!-- Back Button -->
+      <Button layoutX="26.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnBack" style="-fx-background-color: #3e8e41; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #3e8e41; -fx-border-radius: 12px;" text="Back">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
 
-      <TextField fx:id="txtItemName" layoutX="225.0" layoutY="107.0" />
+      <!-- Item Name Label and TextField -->
+      <Label layoutX="100.0" layoutY="99.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Enter name of food to search" />
+      <TextField fx:id="txtItemName" layoutX="325.0" layoutY="89.0" prefWidth="250.0" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.5, 0, 1);" />
 
-      <TextField fx:id="txtPrice" layoutX="225.0" layoutY="174.0" />
+      <!-- Search Button -->
+      <Button layoutX="586.0" layoutY="89.0" mnemonicParsing="false" onAction="#btnSearch" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #4CAF50; -fx-border-radius: 12px;" text="Search" textFill="WHITE" />
 
-      <Label layoutX="21.0" layoutY="100.0" prefHeight="39.0" prefWidth="150.0" text="Enter name of food &#10;to search">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
+      <!-- Price Label and TextField -->
+      <Label layoutX="100.0" layoutY="175.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Enter updated price:" />
+      <TextField fx:id="txtPrice" layoutX="325.0" layoutY="164.0" prefWidth="250.0" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.5, 0, 1);" />
 
-      <Button layoutX="409.0" layoutY="105.0" mnemonicParsing="false" onAction="#btnSearch" style="-fx-background-color: green;" text="Search" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
+      <!-- Description Label and TextField -->
+      <Label layoutX="100.0" layoutY="263.0" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Enter updated Description:" />
+      <TextField fx:id="txtDesc" layoutX="325.0" layoutY="252.0" prefWidth="250.0" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-background-color: #ffffff; -fx-border-color: #ccc; -fx-border-radius: 8px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0.5, 0, 1);" />
 
-      <Label layoutX="21.0" layoutY="176.0" text="Enter updated price:-">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-
-      <Button layoutX="268.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: red;" text="Save" textFill="#ececec">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-
-      <Label layoutX="20.0" layoutY="249.0" text="Enter updated Description:-">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-
-      <TextField fx:id="txtDesc" layoutX="225.0" layoutY="247.0" />
-
-      <Button fx:id="txtimage" layoutX="225.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: blue;" text="Upload Image" textFill="WHITE" />
+      <!-- Upload Image Button -->
+      <Button fx:id="txtimage" layoutX="374.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #007bff; -fx-border-radius: 12px;" text="Upload Image" textFill="WHITE" />
 
       <!-- ImageView to display image -->
-      <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="391.0" layoutY="174.0" />
+      <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="391.0" layoutY="174.0" style="-fx-background-radius: 8px; -fx-border-color: #ccc; -fx-border-radius: 8px;" />
+
+      <!-- Save Button -->
+      <Button layoutX="400.0" layoutY="409.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d32f2f; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #d32f2f; -fx-border-radius: 12px;" text="Save" textFill="#ececec" />
+      <VBox layoutY="107.0" prefHeight="200.0" prefWidth="100.0" />
    </children>
 </AnchorPane>

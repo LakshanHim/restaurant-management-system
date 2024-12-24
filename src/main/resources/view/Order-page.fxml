@@ -13,27 +13,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="rootOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.OrderController">
+<BorderPane fx:id="rootOrder" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="779.0" prefWidth="1177.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.OrderController" style="-fx-background-color: #f7f8fc;">
    <top>
-      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="838.0" spacing="500.0">
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="838.0" spacing="650.0" style="-fx-padding: 10; -fx-background-color: #4a69bd;">
          <children>
-            <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBack" text="Back" />
-            <Label text="Order">
+            <Button layoutX="81.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBack" text="Back" style="-fx-background-color: #60a3bc; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" />
+            <Label text="Order" textFill="#FFFFFF">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#btnClose" text="Close" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#btnClose" text="Close" style="-fx-background-color: #ff6f61; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" />
          </children>
       </HBox>
    </top>
    <center>
-      <ScrollPane fx:id="scrollPane" fitToWidth="true">
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" style="-fx-background-color: transparent;">
          <GridPane fx:id="cardGrid" style="-fx-padding: 10;" />
       </ScrollPane>
    </center>
    <right>
-      <VBox alignment="TOP_CENTER" prefHeight="489.0" prefWidth="368.0" spacing="10.0" style="-fx-padding: 10;">
+      <VBox alignment="TOP_CENTER" prefHeight="489.0" prefWidth="368.0" spacing="10.0" style="-fx-padding: 10; -fx-background-color: #ffffff; -fx-border-color: #d1d8e0; -fx-border-radius: 10;">
          <children>
             <TableView fx:id="orderTable" prefHeight="365.0" prefWidth="294.0">
                <columns>
@@ -42,41 +42,33 @@
                   <TableColumn fx:id="column3" prefWidth="154.40000915527344" text="Price" />
                </columns>
             </TableView>
-            <Button onAction="#onAddClicked" text="PlaceOrder" />
-            <Pane prefHeight="249.0" prefWidth="338.0" style="-fx-background-color: white;">
+            <Button onAction="#onAddClicked" text="Place Order" style="-fx-background-color: #38ada9; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" />
+            <Pane prefHeight="249.0" prefWidth="338.0" style="-fx-background-color: #f0f3f5; -fx-padding: 10; -fx-border-color: #d1d8e0; -fx-border-radius: 10;">
                <children>
-                  <Label layoutX="29.0" layoutY="14.0" text="Sub total:-">
+                  <Label layoutX="29.0" layoutY="14.0" text="Sub total:" textFill="#2c3e50">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Label layoutX="29.0" layoutY="60.0" text="Amount  :-">
+                  <Label layoutX="29.0" layoutY="60.0" text="Amount:" textFill="#2c3e50">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtAmount" layoutX="140.0" layoutY="62.0" onAction="#amount" />
-                  <Label layoutX="29.0" layoutY="111.0" text="Balance   :-">
+                  <TextField fx:id="txtAmount" layoutX="140.0" layoutY="62.0" onAction="#amount" style="-fx-background-color: #ffffff; -fx-border-color: #d1d8e0; -fx-border-radius: 5;" />
+                  <Label layoutX="29.0" layoutY="111.0" text="Balance:" textFill="#2c3e50">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Label>
-                  <Button layoutX="27.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnPay" prefHeight="28.0" prefWidth="300.0" text="Pay">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="27.0" layoutY="198.0" mnemonicParsing="false" onAction="#btnRecept" prefHeight="28.0" prefWidth="300.0" text="Recept">
-                     <font>
-                        <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="lblSubTotal" layoutX="140.0" layoutY="14.0" text="Label">
+                  <Button layoutX="27.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnPay" prefHeight="28.0" prefWidth="300.0" text="Pay" style="-fx-background-color: #78e08f; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" />
+                  <Button layoutX="27.0" layoutY="198.0" mnemonicParsing="false" onAction="#btnRecept" prefHeight="28.0" prefWidth="300.0" text="Receipt" style="-fx-background-color: #60a3bc; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" />
+                  <Label fx:id="lblSubTotal" layoutX="140.0" layoutY="14.0" text="Label" textFill="#34495e">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblBalance" layoutX="140.0" layoutY="111.0" text="Label">
+                  <Label fx:id="lblBalance" layoutX="140.0" layoutY="111.0" text="Label" textFill="#34495e">
                      <font>
                         <Font size="19.0" />
                      </font>

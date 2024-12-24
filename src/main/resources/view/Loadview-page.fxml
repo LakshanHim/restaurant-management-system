@@ -7,26 +7,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootLoadView" prefHeight="501.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.LoadViewController">
+<AnchorPane fx:id="rootLoadView" prefHeight="501.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.LoadViewController" style="-fx-background-color: #f4f4f4;">
     <children>
-        <TableView fx:id="tblView" layoutX="64.0" layoutY="72.0" prefHeight="414.0" prefWidth="464.0" editable="true">
+        <TableView fx:id="tblView" layoutX="64.0" layoutY="72.0" prefHeight="414.0" prefWidth="464.0" editable="true" style="-fx-border-color: #8b8b8b; -fx-background-color: #ffffff;">
             <columns>
-                <TableColumn fx:id="colId" prefWidth="64.79998588562012" text="Id" />
-                <TableColumn fx:id="colItemName" prefWidth="189.60004425048828" text="Item Name" />
-                <TableColumn fx:id="colUnitPrice" prefWidth="70.39996337890625" text="Unit Price" />
-                <TableColumn fx:id="colDescription" prefWidth="136.00006103515625" text="Description" />
+                <TableColumn fx:id="colId" prefWidth="64.79998588562012" text="Id" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+                <TableColumn fx:id="colItemName" prefWidth="189.60004425048828" text="Item Name" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+                <TableColumn fx:id="colUnitPrice" prefWidth="70.39996337890625" text="Unit Price" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
+                <TableColumn fx:id="colDescription" prefWidth="136.00006103515625" text="Description" style="-fx-font-weight: bold; -fx-text-fill: #333333;" />
             </columns>
         </TableView>
-        <Button layoutX="24.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnBack" text="Back" textFill="#1b0909">
+
+        <Button layoutX="24.0" layoutY="22.0" mnemonicParsing="false" onAction="#btnBack" text="Back" textFill="#ffffff" style="-fx-background-color: #007acc; -fx-font-weight: bold;">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>
         </Button>
-        <Label layoutX="221.0" layoutY="18.0" text="Load All Menu">
+
+        <Label layoutX="221.0" layoutY="18.0" text="Load All Menu" style="-fx-font-weight: bold; -fx-font-size: 25.0; -fx-text-fill: #333333;">
             <font>
                 <Font name="System Bold" size="25.0" />
             </font>
         </Label>
     </children>
 </AnchorPane>
-

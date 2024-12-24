@@ -179,23 +179,23 @@ public class OrderController {
     }
 
 
-        private void print(VBox billContent) {
-            Printer printer = Printer.getDefaultPrinter();
-            if (printer == null) {
-                System.out.println("No printer found!");
-                return;
-            }
+    private void print(VBox billContent) {
+        Printer printer = Printer.getDefaultPrinter();
+        if (printer == null) {
+            System.out.println("No printer found!");
+            return;
+        }
 
-            PrinterJob job = PrinterJob.createPrinterJob(printer);
-            if (job != null && job.showPrintDialog(billContent.getScene().getWindow())) {
-                boolean success = job.printPage(billContent);
-                if (success) {
-                    job.endJob();
-                    System.out.println("Bill printed successfully.");
-                } else {
-                    System.out.println("Failed to print the bill.");
-                }
+        PrinterJob job = PrinterJob.createPrinterJob(printer);
+        if (job != null && job.showPrintDialog(billContent.getScene().getWindow())) {
+            boolean success = job.printPage(billContent);
+            if (success) {
+                job.endJob();
+                System.out.println("Bill printed successfully.");
+            } else {
+                System.out.println("Failed to print the bill.");
             }
+        }
     }
 
     double subTotal=0;

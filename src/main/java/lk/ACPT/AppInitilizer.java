@@ -23,7 +23,7 @@ public class AppInitilizer extends Application {
             load = FXMLLoader.load(getClass().getResource("/view/Login-page.fxml"));
             Scene scene = new Scene(load);
             primaryStage.setScene(scene);
-            primaryStage.initStyle(StageStyle.UNDECORATED);
+//            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.centerOnScreen();
             primaryStage.show();
         } catch (IOException e) {

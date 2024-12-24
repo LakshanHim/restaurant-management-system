@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -64,10 +65,11 @@ public class MenuSaveControlller {
     void btnUploadImage(ActionEvent event) {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.jpeg"));
         selectedImageFile = fileChooser.showOpenDialog(null);
-        if (selectedImageFile != null) {
-            System.out.println("Image selected: " + selectedImageFile.getName());
-        }
+        btnUploadImage.setStyle("-fx-background-color: #e74c3c; -fx-font-weight: bold; -fx-text-fill: white;");
     }
+
+    @FXML
+    private Button btnUploadImage;
 
     @FXML
     void btnback(ActionEvent event) throws IOException {

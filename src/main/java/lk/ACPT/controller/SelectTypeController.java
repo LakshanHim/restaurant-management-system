@@ -102,5 +102,21 @@ public class SelectTypeController {
         stage.setScene(scene);
         stage.centerOnScreen();
     }
+    @FXML
+    void btnDash(ActionEvent event) {
+        Stage stage = (Stage) this.rootType.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Dash-page.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        // Set the scene and enable fullscreen mode
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+
+    }
 
 }

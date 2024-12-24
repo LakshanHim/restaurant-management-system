@@ -83,11 +83,6 @@ public class PrintBillController {
     }
     @FXML
     void btnAddMenu(ActionEvent event) throws IOException {
-
-        if (rootBill== null) {
-            System.err.println("Error: rootBillPrint is not initialized. Check your FXML file.");
-            return;
-        }
         try {
             Stage stage = (Stage) this.rootBill.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Menusave-page.fxml"));
@@ -137,7 +132,19 @@ public class PrintBillController {
     }
 
     @FXML
-    void btnReport(ActionEvent event) {
+    void btnDash(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootBill.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Dash-page.fxml"));
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        // Set the scene and enable fullscreen mode
+        stage.setScene(scene);
+        stage.setFullScreen(true);
 
     }
 
