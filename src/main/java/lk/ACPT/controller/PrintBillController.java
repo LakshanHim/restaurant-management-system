@@ -6,10 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lk.ACPT.db.DBConnection;
@@ -30,13 +32,29 @@ import java.util.ArrayList;
 public class PrintBillController {
 
     @FXML
-    private AnchorPane rootBill;
+    private BorderPane rootBill;
 
     @FXML
     private TextArea txtReceipt;
 
     @FXML
     private TextField txtid;
+
+    @FXML
+    void btnBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootBill.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Select-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.setFullScreen(false);
+
+    }
+
+    @FXML
+    void btnClose(ActionEvent event) {
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     void btnId(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -168,7 +186,7 @@ public class PrintBillController {
     }
 
     @FXML
-    void btnExcel(ActionEvent event) {
+      void btnExcel(ActionEvent event) {
         try  {
             Connection connection = DBConnection.getDBConnection().getConnection();
             // Create a new Excel workbook
@@ -197,7 +215,7 @@ public class PrintBillController {
         }
 
     }
-    private void exportOrderDetails(Connection connection, Workbook workbook) {
+    private  void exportOrderDetails(Connection connection, Workbook workbook) {
 
         try{
             String query = "SELECT * FROM order_details";

@@ -1,71 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootBill" prefHeight="451.0" prefWidth="752.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.PrintBillController">
-   <children>
-      <VBox alignment="CENTER" layoutY="48.0" prefHeight="404.0" prefWidth="170.0" spacing="50.0" style="-fx-background-color: #2C3E50;">
+<BorderPane fx:id="rootBill" prefHeight="746.0" prefWidth="1052.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.PrintBillController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="48.0" spacing="630.0" style="-fx-background-color: #70564a;">
          <children>
-            <Button mnemonicParsing="false" onAction="#btnOrderDetail" prefHeight="26.0" prefWidth="132.0" text="Order Details" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-weight: bold;">
+            <Button mnemonicParsing="false" onAction="#btnBack" style="-fx-background-color: #5D9C59;" text="Back">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label text="Print Bill" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button layoutX="452.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnClose" style="-fx-background-color: #DF2E38;" text="Close">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox alignment="CENTER" prefHeight="698.0" prefWidth="192.0" spacing="90.0" style="-fx-background-color: #bbaecd;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#btnOrderDetail" prefHeight="40.0" prefWidth="146.0" style="-fx-text-fill: #70564a; -fx-font-weight: bold;" styleClass="BillButton" text="Order Details">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnAddMenu" prefHeight="26.0" prefWidth="132.0" text="Add Menu" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-weight: bold;">
+            <Button mnemonicParsing="false" onAction="#btnAddMenu" prefHeight="40.0" prefWidth="146.0" style="-fx-text-fill: #70564a; -fx-font-weight: bold;" styleClass="BillButton" text="Add Menu">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnLoadMenu" prefHeight="26.0" prefWidth="132.0" text="Load All Menu" style="-fx-background-color: #9B59B6; -fx-text-fill: white; -fx-font-weight: bold;">
+            <Button mnemonicParsing="false" onAction="#btnLoadMenu" prefHeight="40.0" prefWidth="146.0" style="-fx-text-fill: #70564a; -fx-font-weight: bold;" styleClass="BillButton" text="Load All Menu">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="26.0" prefWidth="132.0" text="Menu Update" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-weight: bold;">
+            <Button mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="40.0" prefWidth="146.0" style="-fx-text-fill: #70564a; -fx-font-weight: bold;" styleClass="BillButton" text="Menu Update">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#btnDash" prefHeight="26.0" prefWidth="132.0" text="Dashboard" style="-fx-background-color: #F1C40F; -fx-text-fill: white; -fx-font-weight: bold;">
+            <Button mnemonicParsing="false" onAction="#btnDash" prefHeight="40.0" prefWidth="146.0" style="-fx-text-fill: #70564a; -fx-font-weight: bold;" styleClass="BillButton" text="Dashboard">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
          </children>
       </VBox>
-      <TextField fx:id="txtid" layoutX="284.0" layoutY="89.0" onAction="#btnId" style="-fx-background-color: #ECF0F1; -fx-border-color: #7F8C8D;" />
-      <HBox alignment="CENTER" prefHeight="48.0" prefWidth="752.0" style="-fx-background-color: #34495E;">
+   </left>
+   <center>
+      <VBox alignment="CENTER" spacing="20.0">
          <children>
-            <Label text="Print Bill" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
+            <HBox alignment="CENTER" spacing="10.0" />
+            <HBox alignment="CENTER" spacing="10.0" />
+            <Pane prefHeight="686.0" prefWidth="667.0">
+               <children>
+                  <Button layoutX="314.0" layoutY="205.0" mnemonicParsing="false" onAction="#btnExcel" prefHeight="39.0" prefWidth="189.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-weight: bold;" text="Get Excel Sheet">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Button>
+                  <Label layoutX="118.0" layoutY="210.0" style="-fx-text-fill: #2C3E50;" text="Get Excel Sheet:-">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="321.0" layoutY="77.0" mnemonicParsing="false" onAction="#btnPrint" style="-fx-background-color: #E67E22; -fx-text-fill: white; -fx-font-weight: bold;" text="Print Bill">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txtid" layoutX="236.0" layoutY="15.0" onAction="#btnId" prefHeight="51.0" prefWidth="245.0" style="-fx-background-color: #ECF0F1; -fx-border-color: #7F8C8D;" />
+                  <Label layoutX="118.0" layoutY="24.0" style="-fx-text-fill: #2C3E50;" text="Bill No:-">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
-      </HBox>
-      <Label layoutX="198.0" layoutY="89.0" text="Bill No:-" style="-fx-text-fill: #2C3E50;">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="306.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnPrint" text="Print Bill" style="-fx-background-color: #E67E22; -fx-text-fill: white; -fx-font-weight: bold;">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <TextArea fx:id="txtReceipt" layoutX="486.0" layoutY="72.0" prefHeight="348.0" prefWidth="230.0" style="-fx-background-color: #ECF0F1; -fx-border-color: #7F8C8D;" />
-      <Button layoutX="344.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnExcel" text="Get Excel Sheet" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-weight: bold;" />
-      <Label layoutX="198.0" layoutY="286.0" text="Get Excel Sheet:-" style="-fx-text-fill: #2C3E50;">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+      </VBox>
+   </center>
+   <right>
+      <TextArea fx:id="txtReceipt" prefHeight="698.0" prefWidth="299.0" style="-fx-background-color: #ECF0F1; -fx-border-color: #7F8C8D;">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></TextArea>
+   </right>
+</BorderPane>

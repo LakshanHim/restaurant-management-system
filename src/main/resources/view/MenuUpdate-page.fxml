@@ -39,7 +39,7 @@
       <Button fx:id="txtimage" layoutX="374.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #007bff; -fx-border-radius: 12px;" text="Upload Image" textFill="WHITE" />
 
       <!-- ImageView to display image -->
-      <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="391.0" layoutY="174.0" style="-fx-background-radius: 8px; -fx-border-color: #ccc; -fx-border-radius: 8px;" />
+      <ImageView fx:id="imgView" fitHeight="100.0" fitWidth="100.0" layoutX="586.0" layoutY="175.0" style="-fx-background-radius: 8px; -fx-border-color: #ccc; -fx-border-radius: 8px;" />
 
       <!-- Save Button -->
       <Button layoutX="400.0" layoutY="409.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d32f2f; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px; -fx-background-radius: 12px; -fx-border-color: #d32f2f; -fx-border-radius: 12px;" text="Save" textFill="#ececec" />

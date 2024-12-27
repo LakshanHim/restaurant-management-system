@@ -10,6 +10,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -32,6 +33,28 @@ public class Dashboard {
 
     @FXML
     private NumberAxis yAxis;
+
+    @FXML
+    private Label lblincome;
+
+    @FXML
+    private Label lblOdrNum;
+
+    @FXML
+    void btnBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootDash.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Select-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        stage.setScene(scene);
+        stage.setFullScreen(false);
+    }
+
+    @FXML
+    void btnClose(ActionEvent event) {
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     void btnAdd(ActionEvent event) {
@@ -73,8 +96,13 @@ public class Dashboard {
     }
 
     @FXML
-    void btnReport(ActionEvent event) {
-        // Handle report button click
+    void btnBill(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootDash.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/PrintBill-page.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setFullScreen(true);
     }
 
     @FXML
@@ -133,9 +161,50 @@ public class Dashboard {
         timeline.play(); // Start the update process
     }
 
+    private void totalAmountToday(){
+        double totalAmounttoday = 0;
+        try {
+            Connection connection = DBConnection.getDBConnection().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT SUM(totalAmount) AS totalAmountToday FROM orders WHERE orderDate = CURDATE()");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { // Use if instead of while because only one row is expected
+                totalAmounttoday = resultSet.getDouble("totalAmountToday"); // Use the alias
+                lblincome.setText(String.valueOf("Total Amount:-"+ totalAmounttoday)); // Set the label text with the value
+            } else {
+                lblincome.setText("0.00"); // Set default value if no data is found
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+    private void OderNum(){
+        int totalOrdersToday = 0;
+        try {
+            Connection connection = DBConnection.getDBConnection().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS totalOrdersToday FROM orders WHERE orderDate = CURDATE()");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) { // Use if as only one row is expected
+                totalOrdersToday = resultSet.getInt("totalOrdersToday"); // Retrieve the count
+                lblOdrNum.setText(String.valueOf("Total Orders:-"+ totalOrdersToday)); // Set the label text with the value
+            } else {
+                lblOdrNum.setText("0"); // Default value if no data is found
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
     // Initialize the controller
     public void initialize() {
         updateChartData();  // Initial update when the app starts
-        setupDailyUpdate();  // Set up the auto-update every day
+        setupDailyUpdate();// Set up the auto-update every day
+        totalAmountToday();
+        OderNum();
+
+
     }
 }

@@ -79,7 +79,7 @@ public class OrderController {
 
     @FXML
     void btnPay(ActionEvent event) {
-        if (balance > 0) {
+        if (balance >= 0) {
             // Clear order details
             orderTable.getItems().clear();
             lblSubTotal.setText("");
@@ -343,16 +343,6 @@ public class OrderController {
     @FXML
     private void onAddClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
         boolean b =OrderModel.placeOrder(new OrderDto(formatDate,formatTime,subTotal,orderDetailDtos));
-
-        if(b){
-            System.out.println("updated");
-        }
-        else {
-            System.out.println("not updated");
-        }
-
         lblSubTotal.setText("$"+subTotal);
-
-
     }
 }
