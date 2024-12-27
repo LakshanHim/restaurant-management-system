@@ -5,3 +5,27 @@
     -fx-background-color: #113C4A;
     -fx-text-fill: white;
 }
+.odr{
+    -fx-text-fill: white;
+    -fx-background-position: center;
+}
+.addHover{
+    -fx-background-color: #CC3636;
+}
+.addHover:hover{
+    -fx-background-color: green;
+}
+.DashButton{
+    -fx-background-color: #dee3e7;
+}
+.DashButton:hover{
+    -fx-background-color: #e3a780;
+}
+.BillButton{
+    -fx-background-color: #dee3e7;
+    -fx-background-radius: 10;
+}
+.BillButton:hover{
+    -fx-background-color: #e3a780;
+    -fx-background-radius: 10;
+}

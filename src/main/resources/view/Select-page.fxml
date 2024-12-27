@@ -1,57 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootType" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #DDDDDD;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.SelectTypeController">
+<AnchorPane fx:id="rootType" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F0F4F8;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.SelectTypeController">
    <children>
-      <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #265A5C;">
+      <AnchorPane prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #2C3E50;">
          <children>
-            <Label layoutX="262.0" layoutY="-1.0" text="Select user type" textFill="#fcfeff">
+            <Label layoutX="262.0" layoutY="5.0" text="Select User Type" textFill="#FCFEFF">
                <font>
-                  <Font name="System Bold" size="37.0" />
+                  <Font name="Arial Bold" size="36.0" />
                </font>
             </Label>
-            <FontAwesomeIconView glyphName="HOME" layoutX="14.0" layoutY="42.0" size="40" text="" wrappingWidth="49.54294300079346" />
-            <Label fx:id="setDate" layoutX="600.0" layoutY="17.0" text="Date" textFill="#fffdfd">
+            <Label fx:id="setDate" layoutX="600.0" layoutY="17.0" text="Date" textFill="#ECF0F1">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="setTime" layoutX="702.0" layoutY="18.0" text="Time" textFill="#fffdfd">
+            <Label fx:id="setTime" layoutX="702.0" layoutY="18.0" text="Time" textFill="#ECF0F1">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="Arial" size="14.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <Separator layoutX="56.0" layoutY="310.0" prefHeight="0.0" prefWidth="672.0" style="-fx-background-color: #113C4A;" />
-      <Button layoutX="53.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnOrder" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Order&#10;Details&#10;&#10;">
+      <Separator layoutX="56.0" layoutY="310.0" prefHeight="0.0" prefWidth="672.0" style="-fx-background-color: #34495E;" />
+      <Button layoutX="53.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnOrder" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Order &#10;Details" textAlignment="CENTER">
          <font>
-            <Font name="Times New Roman Bold" size="17.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <FontAwesomeIconView glyphName="HOME" layoutX="102.0" layoutY="216.0" size="20" text="" wrappingWidth="22.342930793762207" />
-      <Separator layoutX="197.0" layoutY="176.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
-      <Button layoutX="243.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnReport" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Report&#10;&#10;&#10;">
+      <Separator layoutX="197.0" layoutY="176.0" orientation="VERTICAL" prefHeight="272.0" style="-fx-background-color: #34495E;" />
+      <Button layoutX="243.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnReport" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #3498DB; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Report">
          <font>
-            <Font name="Times New Roman Bold" size="17.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Separator layoutX="396.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
-      <Separator layoutX="589.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="1.0" style="-fx-background-color: #113C4A;" />
-      <Button layoutX="434.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnMenu" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Menu&#10;Update&#10;&#10;&#10;&#10;">
+      <Separator layoutX="396.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" style="-fx-background-color: #34495E;" />
+      <Separator layoutX="589.0" layoutY="177.0" orientation="VERTICAL" prefHeight="272.0" style="-fx-background-color: #34495E;" />
+      <Button layoutX="434.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnMenuUpdate" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #E67E22; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Menu&#10;Update" textAlignment="CENTER">
          <font>
-            <Font name="Times New Roman Bold" size="17.0" />
+            <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="620.0" layoutY="188.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="119.0" styleClass="GrorpHover" text="Menu&#10;Update&#10;&#10;&#10;&#10;">
+      <Button layoutX="620.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnLoadMenu" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #9B59B6; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Load All&#10;Menu" textAlignment="CENTER">
          <font>
-            <Font name="Times New Roman Bold" size="17.0" />
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="53.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnAddItems" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #16A085; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Add Menu&#10;Items" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="243.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnBill" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #F39C12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Print Bill &#10;ExcelSheet" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="434.0" layoutY="324.0" mnemonicParsing="false" onAction="#btnDash" prefHeight="111.0" prefWidth="119.0" style="-fx-background-color: #34495E; -fx-text-fill: #FFFFFF; -fx-font-weight: bold; -fx-background-radius: 10;" text="Dashboard" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="16.0" />
          </font>
       </Button>
    </children>

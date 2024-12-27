@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootAddmenu" prefHeight="414.0" prefWidth="638.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ACPT.controller.MenuSaveControlller">
+   <children>
+      <Label layoutX="203.0" layoutY="20.0" style="-fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #2c3e50;" text="Add menu items" />
+
+      <Button layoutX="27.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnback" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #5D9C59; -fx-font-weight: bold;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+
+      <TextField fx:id="txtName" layoutX="244.0" layoutY="149.0" prefHeight="27.0" prefWidth="161.0" style="-fx-background-color: white; -fx-border-color: #7f8c8d; -fx-border-width: 1px;" />
+
+      <TextField fx:id="txtUnitaPrice" layoutX="243.0" layoutY="219.0" prefHeight="27.0" prefWidth="162.0" style="-fx-background-color: white; -fx-border-color: #7f8c8d; -fx-border-width: 1px;" />
+
+      <TextArea fx:id="txtDescription" layoutX="244.0" layoutY="269.0" prefHeight="60.0" prefWidth="161.0" style="-fx-background-color: white; -fx-border-color: #7f8c8d; -fx-border-width: 1px;" wrapText="true" />
+
+      <Button fx:id="btnUploadImage" layoutX="243.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnUploadImage" prefHeight="26.0" prefWidth="161.0" style="-fx-background-color: #3498db; -fx-font-weight: bold; -fx-text-fill: white;" text="Upload Image">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+
+      <Button layoutX="296.0" layoutY="374.0" mnemonicParsing="false" onAction="#btnSave" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #FFD23F; -fx-font-weight: bold; -fx-text-fill: #70564a;" text="Save">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+
+      <Label layoutX="56.0" layoutY="153.0" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #34495e;" text="Enter the Item name:-" />
+      <Label layoutX="56.0" layoutY="223.0" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #34495e;" text="Enter the Item Price:-" />
+      <Label layoutX="56.0" layoutY="273.0" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #34495e;" text="Enter the Item Description:-" />
+   </children>
+</AnchorPane>
